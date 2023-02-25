@@ -1,9 +1,9 @@
-import { Modal as RNmodal, StyleSheet, Text, View } from "react-native";
+import { Modal, StyleSheet, Text, View } from "react-native";
 
 import Button from "./Button";
 import React from "react";
 
-const Modal = ({
+const ItemModal = ({
   modalVisible,
   selectedItem,
   onCancelModal,
@@ -11,7 +11,7 @@ const Modal = ({
   onItemDone
 }) => {
   return (
-    <RNmodal animationType="slide" transparent={true} visible={modalVisible}>
+    <Modal animationType="slide" transparent={true} visible={modalVisible}>
       <View style={styles.modalMainView}>
         <View style={styles.modalView}>
           <Text style={styles.modalTitle}>Acciones</Text>
@@ -42,11 +42,11 @@ const Modal = ({
           </View>
         </View>
       </View>
-    </RNmodal>
+    </Modal>
   );
 };
 
-export default Modal;
+export default ItemModal;
 
 const styles = StyleSheet.create({
   modalMainView: {

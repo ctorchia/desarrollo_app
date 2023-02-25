@@ -1,6 +1,7 @@
-import { StyleSheet, Text, FlatList } from "react-native";
-import React from "react";
+import { FlatList, StyleSheet } from "react-native";
+
 import Item from "./Item";
+import React from "react";
 
 const List = ({ items, openModal }) => {
   return (

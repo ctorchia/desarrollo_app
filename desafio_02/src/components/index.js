@@ -1,9 +1,9 @@
-import NewItemHeader from "./NewItemHeader";
+import ItemModal from "./ItemModal";
 import ListItem from "./ItemList/List";
-import Modal from "./Modal";
+import NewItemHeader from "./NewItemHeader";
 
 export {
     NewItemHeader,
     ListItem,
-    Modal
+    ItemModal
 }

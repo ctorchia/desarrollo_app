@@ -1,5 +1,5 @@
-import { ListItem, Modal, NewItemHeader } from "./src/components";
-import React, { useEffect, useState } from "react";
+import { ItemModal, ListItem, NewItemHeader } from "./src/components";
+import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 
 export default function App() {
@@ -12,20 +12,10 @@ export default function App() {
     setItemText(text);
   };
 
-  useEffect(() => {
-    console.log("useEffect", "itemText", itemText, "ITEMS", items);
-  }, []);
-
   const addItemToState = () => {
-    console.log("addItemToState - start SIN JSON", items, itemText);
-    console.log(
-      "addItemToState - start CON JSON",
-      JSON.stringify({ items, itemText })
-    );
     const newArr = [...items, { id: Date.now(), value: itemText }];
     setItems(newArr);
     setItemText("");
-    console.log("addItemToState - end", "items", newArr);
   };
 
   const openModal = (item) => {
@@ -39,7 +29,7 @@ export default function App() {
 
   const onDeleteModal = (id) => {
     setModalVisible(!modalVisible);
-    setItems((oldArry) => oldArry.filter((item) => item.id !== id));
+    setItems((oldArray) => oldArray.filter((item) => item.id !== id));
     setSelectedItem(null);
   };
 
@@ -56,16 +46,15 @@ export default function App() {
 
   return (
     <View style={styles.screen}>
-      {/* ADDITEM COMPONENT */}
       <NewItemHeader
         onChangeText={onChangeText}
         itemText={itemText}
         addItemToState={addItemToState}
       />
-      {/* LIST COMPONENT */}
+
       <ListItem items={items} openModal={openModal} />
-      {/* MODAl COMPONENT */}
-      <Modal
+      
+      <ItemModal
         modalVisible={modalVisible}
         selectedItem={selectedItem}
         onCancelModal={onCancelModal}
