@@ -1,27 +1,31 @@
-import { StyleSheet, Text, View, Modal as RNmodal } from "react-native";
-import React from "react";
+import { Modal as RNmodal, StyleSheet, Text, View } from "react-native";
+
 import Button from "./Button";
+import React from "react";
 
 const Modal = ({
   modalVisible,
   selectedItem,
   onCancelModal,
   onDeleteModal,
+  onItemDone
 }) => {
   return (
     <RNmodal animationType="slide" transparent={true} visible={modalVisible}>
       <View style={styles.modalMainView}>
         <View style={styles.modalView}>
-          <Text style={styles.modalTitle}>Eliminar Item</Text>
+          <Text style={styles.modalTitle}>Acciones</Text>
           <Text style={styles.modalText}>
-            ¿Está seguro que desea eliminar el item{" "}
+            ¿Que acción desea realizar con el item{" "}
             <Text style={styles.modalBoldText}>{selectedItem?.value}</Text>?
           </Text>
           <View style={styles.modalActions}>
             <Button
-              styleButtonType={styles.buttonCancel}
-              title="Cancelar"
-              onPress={onCancelModal}
+              styleButtonType={styles.buttonDone}
+              title="Realizada"
+              onPress={() => {
+                onItemDone(selectedItem.id);
+              }}
             />
             <Button
               styleButtonType={styles.buttonDelete}
@@ -30,6 +34,11 @@ const Modal = ({
                 onDeleteModal(selectedItem.id);
               }}
             />
+              <Button
+                styleButtonType={styles.buttonCancel}
+                title="Cancelar"
+                onPress={onCancelModal}
+              />
           </View>
         </View>
       </View>
@@ -79,11 +88,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
-
-  buttonCancel: {
-    backgroundColor: "#2196F3",
+  buttonDone: {
+    backgroundColor: "#04AA6D",
   },
   buttonDelete: {
-    backgroundColor: "#f44336",
+    backgroundColor: "red",
+  },
+  buttonCancel: {
+    backgroundColor: "blue",
   },
 });

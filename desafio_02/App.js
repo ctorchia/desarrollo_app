@@ -1,6 +1,6 @@
+import { ListItem, Modal, NewItemHeader } from "./src/components";
 import React, { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { ListItem, NewItemHeader, Modal } from "./src/components";
 
 export default function App() {
   const [itemText, setItemText] = useState("");
@@ -43,6 +43,17 @@ export default function App() {
     setSelectedItem(null);
   };
 
+  const onItemDone = (id) => {
+    setModalVisible(!modalVisible);
+    let indexItemSelected = items.findIndex((item) => item.id === id);
+    if (!selectedItem.value.includes("✅")) {
+    items[indexItemSelected].value = `${selectedItem.value} ✅`;
+    } else {
+      items[indexItemSelected].value = selectedItem.value.replace("✅", "");
+    }
+    setSelectedItem(null);
+  };
+
   return (
     <View style={styles.screen}>
       {/* ADDITEM COMPONENT */}
@@ -59,6 +70,7 @@ export default function App() {
         selectedItem={selectedItem}
         onCancelModal={onCancelModal}
         onDeleteModal={onDeleteModal}
+        onItemDone={onItemDone}
       />
     </View>
   );
