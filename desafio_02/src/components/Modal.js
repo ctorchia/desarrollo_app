@@ -22,7 +22,7 @@ const Modal = ({
           <View style={styles.modalActions}>
             <Button
               styleButtonType={styles.buttonDone}
-              title="Realizada"
+              title={selectedItem?.value.includes("✅") ? "No Realizada" : "Realizada"}
               onPress={() => {
                 onItemDone(selectedItem.id);
               }}
