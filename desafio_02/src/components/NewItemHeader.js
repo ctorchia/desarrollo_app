@@ -1,11 +1,11 @@
-import { StyleSheet, TextInput, View, Button } from "react-native";
+import { Button, StyleSheet, TextInput, View } from "react-native";
+
 import React from "react";
 
 const NewItemHeader = ({
   onChangeText,
   itemText,
   addItemToState,
-  inputPlaceHolder
 }) => {
   return (
     <View style={styles.addItemInputContainer}>
@@ -15,7 +15,7 @@ const NewItemHeader = ({
         onChangeText={onChangeText}
         value={itemText}
       />
-      <Button title="Agregar" onPress={addItemToState} />
+      <Button title="Agregar" onPress={addItemToState} disabled={itemText == "" ? true : false}/>
     </View>
   );
 };

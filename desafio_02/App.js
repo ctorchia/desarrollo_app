@@ -14,7 +14,7 @@ export default function App() {
 
   const addItemToState = () => {
     const newArr = [...items, { id: Date.now(), value: itemText }];
-    setItems(newArr);
+    setItems(newArr)  //  itemText != "" && setItems(newArr);
     setItemText("");
   };
 

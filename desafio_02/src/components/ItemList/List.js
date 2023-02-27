@@ -16,5 +16,3 @@ const List = ({ items, openModal }) => {
 };
 
 export default List;
-
-const styles = StyleSheet.create({});
