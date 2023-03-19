@@ -1,14 +1,15 @@
-import { FlatList } from 'react-native'
-import React from 'react'
-import GridItem from '../components/GridItem'
 import { CATEGORIES } from '../data/categories'
+import { FlatList } from 'react-native'
+import GridItem from '../components/GridItem'
+import React from 'react'
 
 const CategoriesScreen = ({ navigation }) => {
 
     const onSelectGridItem = (item) => {
         navigation.navigate('Products', {
             categoryId: item.id,
-            categoryName: item.title
+            categoryName: item.title,
+            categoryColor: item.color
         })
     }
 

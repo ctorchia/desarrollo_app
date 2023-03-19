@@ -2,11 +2,11 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import React from 'react'
 
-const ProductItem = ({ item, onSelected }) => {
+const ProductItem = ({ item, onSelected, color}) => {
 
     return (
         <TouchableOpacity onPress={() => onSelected(item)}>
-            <View style={styles.productItem}>
+            <View style={[styles.productItem, { backgroundColor: color}]}>
                 <View>
                     <Text style={styles.title}>{item.name}</Text>
                 </View>
