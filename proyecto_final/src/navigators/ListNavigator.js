@@ -1,13 +1,13 @@
-import { StyleSheet, Text, View, Platform } from 'react-native'
-import React from 'react'
+import { Platform, StyleSheet, Text, View } from 'react-native'
 
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import CartScreen from '../screens/CartScreen'
 import { COLORS } from '../constants/colors'
+import ListScreen from '../screens/ListScreen'
+import React from 'react'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 const Stack = createNativeStackNavigator();
 
-const CartNavigator = () => {
+const ListNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -22,15 +22,15 @@ const CartNavigator = () => {
     >
       <Stack.Screen
         name="Cart"
-        component={CartScreen}
+        component={ListScreen}
         options={{
-          title: 'Carrito de compras'
+          title: 'Lista de compras'
         }}
       />
     </Stack.Navigator>
   )
 }
 
-export default CartNavigator
+export default ListNavigator
 
 const styles = StyleSheet.create({})

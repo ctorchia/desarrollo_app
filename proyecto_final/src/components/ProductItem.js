@@ -1,11 +1,12 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+
 import React from 'react'
 
-const BreadItem = ({ item, onSelected }) => {
+const ProductItem = ({ item, onSelected }) => {
 
     return (
         <TouchableOpacity onPress={() => onSelected(item)}>
-            <View style={styles.breadItem}>
+            <View style={styles.productItem}>
                 <View>
                     <Text style={styles.title}>{item.name}</Text>
                 </View>
@@ -18,11 +19,11 @@ const BreadItem = ({ item, onSelected }) => {
     )
 }
 
-export default BreadItem
+export default ProductItem
 
 const styles = StyleSheet.create({
 
-    breadItem: {
+    productItem: {
         padding: 20,
         margin: 10,
         borderRadius: 3,

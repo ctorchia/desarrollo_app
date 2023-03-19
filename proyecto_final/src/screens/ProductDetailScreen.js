@@ -1,28 +1,28 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
-const BreadDetailScreen = ({ route, navigation}) => {
+const ProductDetailScreen = ({ route, navigation}) => {
 
-  const { bread } = route.params
+  const { product } = route.params
 
 
   useEffect(() => {
     navigation.setOptions({
-      title: bread.name
+      title: product.name
     })
   },[])
 
   return (
     <View style={styles.screen}>
-      <Text style={styles.title}>{bread.name}</Text>
-      <Text>Price: ${bread.price}</Text>
-      <Text>{bread.weight}</Text>
-      <Text>{bread.description}</Text>
+      <Text style={styles.title}>{product.name}</Text>
+      <Text>Price: ${product.price}</Text>
+      <Text>{product.weight}</Text>
+      <Text>{product.description}</Text>
     </View>
   )
 }
 
-export default BreadDetailScreen
+export default ProductDetailScreen
 
 const styles = StyleSheet.create({
     screen:{

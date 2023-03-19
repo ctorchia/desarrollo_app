@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 
 import { Entypo } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons'
+import { Fontisto } from '@expo/vector-icons';
+// import { Ionicons } from '@expo/vector-icons'
 import ListNavigator from './ListNavigator'
 import ProductNavigator from './ProductNavigator'
 import React from 'react'
@@ -22,8 +23,8 @@ const TabsNavigator = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.tabBarIcon}>
-              <Entypo name="shop" size={24} color={focused ? '#7F5DF0' : '#748C94'} />
-              <Text style={{ color: focused ? '#7F5DF0' : '#748C94' }}>Shop</Text>
+              <Entypo name="shop" size={24} color={focused ? '#7F5DF0' : '#000'} />
+              <Text style={{ color: focused ? '#7F5DF0' : '#000' }}>Productos</Text>
             </View>
           )
         }}
@@ -33,8 +34,9 @@ const TabsNavigator = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.tabBarIcon}>
-              <Ionicons name="md-cart" size={24} color={focused ? '#7F5DF0' : '#748C94'} />
-              <Text style={{ color: focused ? '#7F5DF0' : '#748C94' }}>Cart</Text>
+              <Fontisto name="list-2" size={24} color={focused ? '#7F5DF0' : '#000'} />
+              {/* <Ionicons name="md-cart" size={24} color={focused ? '#7F5DF0' : '#000'} /> */}
+              <Text style={{ color: focused ? '#7F5DF0' : '#000' }}>Lista</Text>
             </View>
           )
         }}
@@ -52,8 +54,8 @@ const styles = StyleSheet.create({
       width: 0,
       height: 10
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 0.25,
+    shadowOpacity: 0.10,
+    // shadowRadius: 0.10,
     elevation: 5,
     position: 'absolute',
     bottom: 25,

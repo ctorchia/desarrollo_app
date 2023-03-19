@@ -1,7 +1,7 @@
-import BreadDetailScreen from '../screens/BreadDetailScreen'
 import { COLORS } from '../constants/colors'
 import CategoriesScreen from '../screens/CategoriesScreen'
-import CategoryBreadScreen from '../screens/CategoryBreadScreen'
+import CategoryProductScreen from '../screens/CategoryProductScreen'
+import ProductDetailScreen from '../screens/ProductDetailScreen'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
@@ -24,18 +24,18 @@ const ProductNavigator = () => {
           name="Home"
           component={CategoriesScreen}
           options={{
-            title: 'Mi Pan'
+            title: 'Mis Productos'
           }}
         />
         <Stack.Screen
           name="Products"
-          component={CategoryBreadScreen}
+          component={CategoryProductScreen}
           options={({ route }) => ({ title: route.params.categoryName })}
 
         />
         <Stack.Screen
           name="Detail"
-          component={BreadDetailScreen} 
+          component={ProductDetailScreen} 
           />
       </Stack.Navigator>
   )
