@@ -1,15 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native'
+
 import React from 'react'
 
-const CartScreen = () => {
+const ListScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>CartScreen</Text>
+      <Text>Lista de productos a comprar</Text>
     </View>
   )
 }
 
-export default CartScreen
+export default ListScreen
 
 const styles = StyleSheet.create({
     container: {
