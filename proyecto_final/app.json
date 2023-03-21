@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "11-clase-once",
-    "slug": "11-clase-once",
+    "name": "Lista de Compras",
+    "slug": "Lista de Compras",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
