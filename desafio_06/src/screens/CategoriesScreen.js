@@ -1,5 +1,3 @@
-// import { CATEGORIES } from '../data/categories'
-
 import { useDispatch, useSelector } from 'react-redux'
 
 import { FlatList } from 'react-native'
@@ -14,15 +12,10 @@ const CategoriesScreen = ({ navigation }) => {
 
     const onSelectGridItem = (item) => {
         dispatch(selectCategory(item.id))
-        navigation.navigate('Products', {
-            // categoryId: item.id,
-            // categoryName: item.title,
-            // categoryColor: item.color
-        })
+        navigation.navigate('Products', {})
     }
 
     const renderGridItem = ({ item }) => <GridItem item={item} onSelect={onSelectGridItem} />
-
 
     return (
         <FlatList

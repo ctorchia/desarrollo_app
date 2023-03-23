@@ -5,10 +5,7 @@ import { useSelector } from 'react-redux'
 
 const ProductDetailScreen = ({ route, navigation}) => { 
 
-  // const { product } = route.params
-
   const product = useSelector(state => state.products.selected)
-
 
   useEffect(() => {
     navigation.setOptions({

@@ -17,9 +17,7 @@ const CategoryProductScreen = ({ route, navigation }) => {
 
   const handleOnSelected = (item) => {
     dispatch(selectProduct(item.id))
-    navigation.navigate('Detail', {
-      // product: item
-    })
+    navigation.navigate('Detail', {})
   }
 
   const renderProductItem = ({ item }) => (<ProductItem item={item} onSelected={handleOnSelected} color={category.color}/>)
