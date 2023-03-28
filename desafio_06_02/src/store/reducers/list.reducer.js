@@ -3,7 +3,7 @@ import { ADD_ITEM, CLEAR_LIST, CONFIRM_LIST, REMOVE_ITEM } from "../actions/list
 import { LIST } from "../../data/list";
 
 const initialState = {
-    items: LIST,
+    items: [],
     total: LIST.length,
 }
 
