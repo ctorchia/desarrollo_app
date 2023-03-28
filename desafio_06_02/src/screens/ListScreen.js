@@ -1,8 +1,9 @@
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 
 import ListItem from '../components/ListItem'
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { removeItem } from '../store/actions/list.action'
 
 const ListScreen = () => {
 
@@ -10,7 +11,12 @@ const ListScreen = () => {
   console.log(list)
   const total = useSelector(state => state.list.total)
 
-  const onHandleDeleteItem=()=>console.log("Elimina item")
+  const onHandleDeleteItem=(itemId)=>{
+    console.log("Elimina item");
+    dispatch(removeItem(itemId))
+  }
+
+  const dispatch = useDispatch()
 
   const renderListItem = ({item})=>(
     <ListItem item={item} onDelete={onHandleDeleteItem} />

@@ -4,10 +4,11 @@ import { LIST } from "../../data/list";
 
 const initialState = {
     items: LIST,
-    total: 50,
+    total: LIST.length,
 }
 
 const ListReducer = (state = initialState, action) => {
+    
     switch (action.type) {
 
         case ADD_ITEM:
@@ -28,29 +29,28 @@ const ListReducer = (state = initialState, action) => {
             }
             return {
                 ...state,
-                list: updatedItems,
+                items: updatedItems,
                 total: updatedItems.length
             }
 
         case REMOVE_ITEM:
-            
             const filteredItems = state.items.filter(item => item.id !== action.itemId)  
             return {
                 ...state,
-                list: filteredItems,
+                items: filteredItems,
                 total: filteredItems.length
             }
 
         case CLEAR_LIST:
             return {
                 ...state,
-                list: [],
+                items: [],
                 total: 0
             }
         case CONFIRM_LIST:
             return {
                 ...state,
-                list: action.list,
+                items: action.list,
                 total: action.total
             }
         default:
