@@ -1,12 +1,13 @@
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-import { ListItem } from '../components/ListItem'
+import ListItem from '../components/ListItem'
 import React from 'react'
 import { useSelector } from 'react-redux'
 
 const ListScreen = () => {
 
   const list = useSelector(state => state.list.items)
+  console.log(list)
   const total = useSelector(state => state.list.total)
 
   const onHandleDeleteItem=()=>console.log("Elimina item")
@@ -17,7 +18,6 @@ const ListScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Lista de productos a comprar</Text>
       <View style={styles.list}>
         <FlatList 
           data={list}     
@@ -28,8 +28,8 @@ const ListScreen = () => {
       <View style={styles.footer}>
         <TouchableOpacity style={styles.confirm}>
           <View style={styles.total}>
-            <Text style={styles.text}>Total: </Text>
-            <Text style={styles.text}>${total}</Text>
+            <Text style={styles.text}>Total de Productos: </Text>
+            <Text style={styles.text}>{total}</Text>
           </View>
         </TouchableOpacity>
       </View>

@@ -2,7 +2,6 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import Ionicons from '@expo/vector-icons/Ionicons';
 import React from 'react'
-import colors from '../constants/colors';
 
 const ListItem = ({item,onDelete}) => {
   return (
@@ -12,11 +11,11 @@ const ListItem = ({item,onDelete}) => {
         </View>
         <View style={styles.detail}>
             <View>
-                <Text>Cantidad: {item.quantity}</Text>
-                <Text>{item.price}</Text>
+                <Text>{item.name}</Text>
+                <Text>{item.description}</Text>
             </View>
             <TouchableOpacity onPress={()=>onDelete(item.id)}>
-                <Ionicons name="trash" size={24} color={colors.accent} />
+                <Ionicons name="trash" size={24} />
             </TouchableOpacity>
         </View>
     </View>
