@@ -2,11 +2,18 @@ import { StyleSheet, Text, View } from 'react-native'
 
 import { Entypo } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
-// import { Ionicons } from '@expo/vector-icons'
 import ListNavigator from './ListNavigator'
+import ListsScreen from '../screens/ListsScreen';
 import ProductNavigator from './ProductNavigator'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+
+// import { Ionicons } from '@expo/vector-icons'
+
+
+
+
+
 
 const BottomTabs = createBottomTabNavigator()
 
@@ -28,8 +35,8 @@ const TabsNavigator = () => {
             </View>
           )
         }}
-
       />
+
       <BottomTabs.Screen name="List-tab" component={ListNavigator}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -37,6 +44,18 @@ const TabsNavigator = () => {
               <Fontisto name="list-2" size={24} color={focused ? '#7F5DF0' : '#000'} />
               {/* <Ionicons name="md-cart" size={24} color={focused ? '#7F5DF0' : '#000'} /> */}
               <Text style={{ color: focused ? '#7F5DF0' : '#000' }}>Lista</Text>
+            </View>
+          )
+        }}
+      />
+
+      <BottomTabs.Screen name="Lists-tab" component={ListsScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={styles.tabBarIcon}>
+              <Fontisto name="list-2" size={24} color={focused ? '#7F5DF0' : '#000'} />
+              {/* <Ionicons name="md-cart" size={24} color={focused ? '#7F5DF0' : '#000'} /> */}
+              <Text style={{ color: focused ? '#7F5DF0' : '#000' }}>Historial</Text>
             </View>
           )
         }}
