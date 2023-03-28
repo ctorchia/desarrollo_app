@@ -1,9 +1,9 @@
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { confirmList, removeItem } from '../store/actions/list.action'
 import { useDispatch, useSelector } from 'react-redux'
 
 import ListItem from '../components/ListItem'
 import React from 'react'
-import { removeItem } from '../store/actions/list.action'
 
 const ListScreen = () => {
 
@@ -17,6 +17,11 @@ const ListScreen = () => {
   }
 
   const dispatch = useDispatch()
+
+  const onHandleConfirmList = () => {
+    console.log("Confirma lista");
+    dispatch(confirmList(list, total))
+  }
 
   const renderListItem = ({item})=>(
     <ListItem item={item} onDelete={onHandleDeleteItem} />
@@ -32,7 +37,8 @@ const ListScreen = () => {
         />
       </View>
       <View style={styles.footer}>
-        <TouchableOpacity style={styles.confirm}>
+        <TouchableOpacity style={styles.confirm} onPress={onHandleConfirmList}>
+          <Text>Confirmar Lista</Text>
           <View style={styles.total}>
             <Text style={styles.text}>Total de Productos: </Text>
             <Text style={styles.text}>{total}</Text>

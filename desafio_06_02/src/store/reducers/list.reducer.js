@@ -4,7 +4,7 @@ import { LIST } from "../../data/list";
 
 const initialState = {
     items: [],
-    total: LIST.length,
+    total: 0,
 }
 
 const ListReducer = (state = initialState, action) => {
@@ -48,11 +48,7 @@ const ListReducer = (state = initialState, action) => {
                 total: 0
             }
         case CONFIRM_LIST:
-            return {
-                ...state,
-                items: action.list,
-                total: action.total
-            }
+            
         default:
             return state
     }
