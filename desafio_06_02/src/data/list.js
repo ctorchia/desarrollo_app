@@ -6,6 +6,8 @@ export const LIST = [
         description: 'Fideos largos',
         weight: '500 gr',
         price: 300,
+        quantity: "2",
+
     },
     {
         id: '4',
@@ -14,6 +16,8 @@ export const LIST = [
         description: 'Shampoo Sedal',
         weight: '750 ml',
         price: 700,
+        quantity: 1,
+
     },
     {
         id: '6',
@@ -22,6 +26,8 @@ export const LIST = [
         description: 'Detegente líquido',
         weight: '750 ml',
         price: 500,
+        quantity: 3,
+
     },
     {
         id: '8',
@@ -30,5 +36,7 @@ export const LIST = [
         description: 'Yogurt bebible',
         weight: '1000 ml',
         price: 500,
+        quantity: 2,
+
     },
 ]

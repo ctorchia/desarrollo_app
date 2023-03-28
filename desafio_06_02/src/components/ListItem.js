@@ -7,12 +7,12 @@ const ListItem = ({item,onDelete}) => {
   return (
     <View style={styles.item}>
         <View>
-            <Text style={styles.header}>{item.title}</Text>
+            <Text style={styles.header}>{item.name}</Text>
         </View>
         <View style={styles.detail}>
             <View>
-                <Text>{item.name}</Text>
                 <Text>{item.description}</Text>
+                <Text>{item.quantity}</Text>
             </View>
             <TouchableOpacity onPress={()=>onDelete(item.id)}>
                 <Ionicons name="trash" size={24} />
