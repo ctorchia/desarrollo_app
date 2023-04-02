@@ -1,7 +1,7 @@
 import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
 
 import { COLORS } from '../constants/colors'
-// import ImageSelector from '../components/ImageSelector'
+import ImageSelector from '../components/ImageSelector'
 import React from 'react'
 // import { addPlace } from '../store/places.actions'
 import { useDispatch } from 'react-redux'
