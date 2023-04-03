@@ -3,7 +3,7 @@ import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-nat
 import { COLORS } from '../constants/colors'
 import ImageSelector from '../components/ImageSelector'
 import React from 'react'
-// import { addPlace } from '../store/places.actions'
+import { addProduct } from '../store/actions/products.action'
 import { useDispatch } from 'react-redux'
 
 const NewProductScreen = ({ navigation }) => {
@@ -11,13 +11,15 @@ const NewProductScreen = ({ navigation }) => {
     const [titleValue, setTitleValue] = React.useState('')
     const [imageValue, setImageValue] = React.useState('')
 
+    
+
     const titleChangeHandler = text => {
         setTitleValue(text)
     }
 
     const saveProductHandler = () => {
-        // dispatch(addPlace(titleValue,imageValue))
-        // navigation.navigate('Direcciones')
+        dispatch(addProduct(titleValue,imageValue))
+        navigation.navigate('Products')
     }
 
     return (
