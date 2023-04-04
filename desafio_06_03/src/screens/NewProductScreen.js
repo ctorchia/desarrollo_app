@@ -18,7 +18,7 @@ const NewProductScreen = ({ navigation }) => {
     const saveProductHandler = () => {
         console.log(titleValue, imageValue)
         dispatch(addProduct(titleValue,imageValue))
-        // navigation.navigate('Home')
+        navigation.navigate('Home')
     }
 
     return (

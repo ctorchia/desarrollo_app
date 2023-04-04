@@ -22,12 +22,12 @@ const ProductReducer = (state = initialState, action) => {
                 filteredProducts: state.products.filter(product => product.category === action.categoryId)
             }
         case ADD_PRODUCT:
-            const newProduct = new Product(Date.now(), action.payload.name, action.payload.image)
+            const newProduct = new Product(Date.now(), action.payload.name, action.payload.image, "2")
             console.log(newProduct)
             
             return {
                 ...state,
-                products: state.products.push(newProduct)
+                products: state.products.concat(newProduct)
             }
         default:
             return state
