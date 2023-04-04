@@ -6,6 +6,7 @@ export const PRODUCTS = [
         description: 'Arroz parboil largo fino',
         weight: '500 gr',
         price: 200,
+        image: "https://carrefourar.vtexassets.com/arquivos/ids/206123-1200-auto?v=637607586666730000&width=1200&height=auto&aspect=true",
     },
     {
         id: '2',
@@ -14,6 +15,7 @@ export const PRODUCTS = [
         description: 'Fideos largos',
         weight: '500 gr',
         price: 300,
+        image: "https://carrefourar.vtexassets.com/arquivos/ids/175371-1200-auto?v=637468569750900000&width=1200&height=auto&aspect=true",
     },
     {
         id: '3',
@@ -22,6 +24,7 @@ export const PRODUCTS = [
         description: 'Aceite de girasol',
         weight: '900 ml',
         price: 500,
+        image: "https://carrefourar.vtexassets.com/arquivos/ids/155419-1200-auto?v=637457062386100000&width=1200&height=auto&aspect=true",
     },
     {
         id: '4',
@@ -30,6 +33,7 @@ export const PRODUCTS = [
         description: 'Shampoo Sedal',
         weight: '750 ml',
         price: 700,
+        image: "https://carrefourar.vtexassets.com/arquivos/ids/298221-1200-auto?v=638131286424400000&width=1200&height=auto&aspect=true",
     },
     {
         id: '5',
@@ -38,6 +42,7 @@ export const PRODUCTS = [
         description: 'Dentífrico Colgate',
         weight: '90 gr',
         price: 500,
+        image: "https://carrefourar.vtexassets.com/arquivos/ids/275140-1200-auto?v=638121759566800000&width=1200&height=auto&aspect=true",
     },
     {
         id: '6',
@@ -46,6 +51,7 @@ export const PRODUCTS = [
         description: 'Detegente líquido',
         weight: '750 ml',
         price: 500,
+        image: "https://carrefourar.vtexassets.com/arquivos/ids/177497-1200-auto?v=637468576669970000&width=1200&height=auto&aspect=true",
     },
     {
         id: '7',
@@ -54,6 +60,7 @@ export const PRODUCTS = [
         description: 'Lavandina concentrada',
         weight: '2000 ml',
         price: 300,
+        image: "https://carrefourar.vtexassets.com/arquivos/ids/236428-1200-auto?v=637811658839470000&width=1200&height=auto&aspect=true",
     },
     {
         id: '8',
@@ -62,6 +69,7 @@ export const PRODUCTS = [
         description: 'Yogurt bebible',
         weight: '1000 ml',
         price: 500,
+        image: "https://carrefourar.vtexassets.com/arquivos/ids/257179-1200-auto?v=637998984893330000&width=1200&height=auto&aspect=true",
     },
     {
         id: '9',
@@ -70,5 +78,6 @@ export const PRODUCTS = [
         description: 'Crema de leche ',
         weight: '200 ml',
         price: 500,
+        image: "https://carrefourar.vtexassets.com/arquivos/ids/235379-1200-auto?v=637796023704200000&width=1200&height=auto&aspect=true",
     },
 ]
