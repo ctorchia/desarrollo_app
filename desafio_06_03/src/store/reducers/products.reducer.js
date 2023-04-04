@@ -23,6 +23,8 @@ const ProductReducer = (state = initialState, action) => {
             }
         case ADD_PRODUCT:
             const newProduct = new Product(Date.now(), action.payload.name, action.payload.image)
+            console.log(newProduct)
+            
             return {
                 ...state,
                 products: state.products.push(newProduct)

@@ -11,15 +11,14 @@ const NewProductScreen = ({ navigation }) => {
     const [titleValue, setTitleValue] = React.useState('')
     const [imageValue, setImageValue] = React.useState('')
 
-    
-
     const titleChangeHandler = text => {
         setTitleValue(text)
     }
 
     const saveProductHandler = () => {
+        console.log(titleValue, imageValue)
         dispatch(addProduct(titleValue,imageValue))
-        navigation.navigate('Home')
+        // navigation.navigate('Home')
     }
 
     return (

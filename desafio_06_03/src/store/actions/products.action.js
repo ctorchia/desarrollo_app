@@ -2,7 +2,7 @@ import * as FileSystem from 'expo-file-system'
 
 export const SELECT_PRODUCT = 'SELECT_PRODUCT'
 export const FILTER_PRODUCTS = 'FILTER_PRODUCTS'
-export const ADD_PRODUCT = 'ADD_PRODUCTS'
+export const ADD_PRODUCT = 'ADD_PRODUCT'
 
 export const selectProduct = (id) => ({
     type: SELECT_PRODUCT,
@@ -14,7 +14,7 @@ export const filterProducts = (id) => ({
     categoryId: id,
 })
 
-export const addProduct = (title, image) => {
+export const addProduct = (name, image) => {
     console.log(image)
     return async dispatch => {
         const fileName = image.split('/').pop()
@@ -30,7 +30,10 @@ export const addProduct = (title, image) => {
             throw error
         }
 
-        dispatch({type: ADD_PRODUCT, payload: {title, image: Path}})
+        // console.log(name)
+        // console.log(image)
+
+        dispatch({type: ADD_PRODUCT, payload: {name, image: Path}})
     }
 }
 
