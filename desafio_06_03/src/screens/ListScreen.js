@@ -7,6 +7,9 @@ import React from 'react'
 
 const ListScreen = () => {
 
+  const categories = useSelector(state => state.categories.categories)
+  console.log(categories)
+
   const list = useSelector(state => state.list.items)
   console.log(list)
   const total = useSelector(state => state.list.total)
@@ -23,9 +26,10 @@ const ListScreen = () => {
     dispatch(confirmList(list, total))
   }
 
-  const renderListItem = ({item})=>(
-    <ListItem item={item} onDelete={onHandleDeleteItem} />
-  )
+  const renderListItem = ({item})=>{
+    const colorBack = categories.find(category => category.id === item.category).color
+    return <ListItem item={item} onDelete={onHandleDeleteItem} colorBack={colorBack}/>
+  }
 
   return (
     <View style={styles.container}>
