@@ -4,9 +4,9 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import React from 'react'
 
 const ListItem = ({ item, onDelete, colorBack }) => {
+// onPress={() => onSelected(item)}
     return (
-
-        <TouchableOpacity onPress={() => onSelected(item)}>
+        <TouchableOpacity>
             <View style={[styles.productItem, { backgroundColor: colorBack }]}>
                 <Image style={styles.image} source={{ uri: item.image }} />
                 <View style={styles.details}>
