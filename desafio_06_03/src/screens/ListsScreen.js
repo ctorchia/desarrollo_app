@@ -4,15 +4,18 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import ListsItem from '../components/ListsItem'
 import React from 'react'
+import { useFocusEffect } from '@react-navigation/native';
 
 const ListsScreen = () => {
 
   const dispatch = useDispatch()
   const lists = useSelector(state=>state.lists.list)
 
-  React.useEffect(()=>{
-    dispatch(getLists())
-  },[])
+  useFocusEffect(
+    React.useCallback(() => {
+      dispatch(getLists());
+    }, [])
+  );
 
     const onHandleDeleteList = (id)=>{
         console.log('delete list')
