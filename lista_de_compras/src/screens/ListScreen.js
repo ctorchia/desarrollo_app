@@ -11,6 +11,7 @@ const ListScreen = () => {
   console.log(categories)
 
   const list = useSelector(state => state.list.items)
+  list.sort((a, b) => a.category - b.category)
   console.log(list)
   const total = useSelector(state => state.list.total)
 
