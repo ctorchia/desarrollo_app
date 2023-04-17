@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { Button, Image, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -20,11 +20,10 @@ const ProductDetailScreen = ({ navigation }) => {
 
   return (
     <View style={styles.screen}>
+      <Image source={{ uri: product.image }} style={{ width: 200, height: 200 }} />   
       <Text style={styles.title}>{product.name}</Text>
-      <Text>Price: ${product.price}</Text>
-      <Text>{product.weight}</Text>
-      <Text>{product.description}</Text>
-      <Button title='Agregar Item' onPress={() => {
+      <Text style={styles.description}>{product.description}</Text>
+      <Button title='Agregar a Lista' onPress={() => {
         onHandleAddToList()
       }} />
     </View>
@@ -42,5 +41,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontFamily: 'OpenSans_700Bold',
+    marginTop: 10,
+    marginBottom: 10
+  },
+  description: {
+    marginBottom: 10
   }
 })
