@@ -1,9 +1,10 @@
-import { ADD_ITEM, CLEAR_LIST, CONFIRM_LIST, REMOVE_ITEM } from "../actions/list.action";
+import { ADD_ITEM, CLEAR_LIST, CONFIRM_LIST, MOVE_TO_CART, REMOVE_ITEM } from "../actions/list.action";
 
 import { LIST } from "../../data/list";
 
 const initialState = {
     items: [],
+    itemsInCart: [],
     total: 0,
 }
 
@@ -48,6 +49,21 @@ const ListReducer = (state = initialState, action) => {
                 total: 0
             }
         case CONFIRM_LIST:
+
+        case MOVE_TO_CART:
+            console.log("En Reducer:" + action.itemId)
+            const itemToCart = state.items.find(item => item.id === action.itemId)
+            console.log("En Reducer:" + itemToCart.name)
+            console.log("En Reducer:" + state.items.length)
+            const filteredItemsToCart = state.items.filter(item => item.id !== action.itemId)
+            console.log("En Reducer:" + filteredItemsToCart.length)
+            const itemsInCart = [...state.itemsInCart, itemToCart]
+            return {
+                ...state,
+                items: filteredItemsToCart,
+                itemsInCart: itemsInCart,
+                // total: filteredItemsToCart.length
+            }
             
         default:
             return state

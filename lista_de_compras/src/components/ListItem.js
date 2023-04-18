@@ -1,10 +1,11 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react'
 
-const ListItem = ({ item, onDelete, colorBack }) => {
-// onPress={() => onSelected(item)}
+const ListItem = ({ item, onDelete, moveToCart, colorBack }) => {
+    // onPress={() => onSelected(item)}
     return (
         <TouchableOpacity>
             <View style={[styles.productItem, { backgroundColor: colorBack }]}>
@@ -15,9 +16,15 @@ const ListItem = ({ item, onDelete, colorBack }) => {
                         <Text style={styles.description}>{item.description}</Text>
                         <Text>{item.quantity}</Text>
                     </View>
-                    <TouchableOpacity onPress={() => onDelete(item.id)}>
-                        <Ionicons name="trash" size={24} />
-                    </TouchableOpacity>
+                    <View>
+                        <TouchableOpacity onPress={() => onDelete(item.id)}>
+                            <Ionicons name="trash" size={24} />
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => moveToCart(item.id)}>
+                            <MaterialCommunityIcons name="cart-arrow-down" size={24} color="black" />
+                            {/* <Ionicons name="trash" size={24} /> */}
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         </TouchableOpacity>

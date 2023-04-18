@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Text, View } from 'react-native';
 
 import { Ionicons } from '@expo/vector-icons';
+import ListInCart from '../screens/ListInCart'
 import ListScreen from '../screens/ListScreen'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
@@ -58,7 +59,7 @@ export default function App() {
       }}
     >
       <Tab.Screen name="A COMPRAR" component={ListScreen} />
-      <Tab.Screen name="YA COMPRADOS" component={SettingsScreen} />
+      <Tab.Screen name="YA COMPRADOS" component={ListInCart} />
     </Tab.Navigator>
   );
 }
