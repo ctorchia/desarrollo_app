@@ -1,8 +1,8 @@
 import { Button, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { confirmList, removeItem } from '../store/actions/list.action'
+import { confirmList, removeFromCart, removeItem } from '../store/actions/list.action'
 import { useDispatch, useSelector } from 'react-redux'
 
-import ListItem from '../components/ListItem'
+import ListItemInCart from '../components/ListItemInCart'
 import React from 'react'
 
 const ListInCart = () => {
@@ -14,9 +14,15 @@ const ListInCart = () => {
   console.log("itemsInCart:"+list)
 //   const total = useSelector(state => state.list.total)
 
-  const onHandleDeleteItem = (itemId) => {
-    console.log("Elimina item");
-    dispatch(removeItem(itemId))
+  // const onHandleDeleteItem = (itemId) => {
+  //   console.log("Elimina item");
+  //   dispatch(removeItem(itemId))
+  // }
+
+  const onHandleRemoveFromCart = (itemId) => {
+    console.log("Saca Item del Carrito");
+    console.log("En onHandle:" + itemId)
+    dispatch(removeFromCart(itemId))
   }
 
   const dispatch = useDispatch()
@@ -28,7 +34,7 @@ const ListInCart = () => {
 
   const renderListItem = ({ item }) => {
     const colorBack = categories.find(category => category.id === item.category).color
-    return <ListItem item={item} onDelete={onHandleDeleteItem} colorBack={colorBack} /> // colorBack={colorBack}
+    return <ListItemInCart item={item} removeFromCart={onHandleRemoveFromCart} colorBack={colorBack} /> // colorBack={colorBack}
   }
 
   return (

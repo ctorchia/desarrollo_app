@@ -59,7 +59,7 @@ export default function App() {
       }}
     >
       <Tab.Screen name="A COMPRAR" component={ListScreen} />
-      <Tab.Screen name="YA COMPRADOS" component={ListInCart} />
+      <Tab.Screen name="EN CARRITO" component={ListInCart} />
     </Tab.Navigator>
   );
 }

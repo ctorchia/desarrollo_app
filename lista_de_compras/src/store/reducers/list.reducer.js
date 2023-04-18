@@ -1,4 +1,4 @@
-import { ADD_ITEM, CLEAR_LIST, CONFIRM_LIST, MOVE_TO_CART, REMOVE_ITEM } from "../actions/list.action";
+import { ADD_ITEM, CLEAR_LIST, CONFIRM_LIST, MOVE_TO_CART, REMOVE_FROM_CART, REMOVE_ITEM } from "../actions/list.action";
 
 import { LIST } from "../../data/list";
 
@@ -62,6 +62,17 @@ const ListReducer = (state = initialState, action) => {
                 ...state,
                 items: filteredItemsToCart,
                 itemsInCart: itemsInCart,
+                // total: filteredItemsToCart.length
+            }
+
+        case REMOVE_FROM_CART:
+            const itemFromCart = state.itemsInCart.find(item => item.id === action.itemId)
+            const filteredItemsFromCart = state.itemsInCart.filter(item => item.id !== action.itemId)
+            const items = [...state.items, itemFromCart]
+            return {
+                ...state,
+                items: items,
+                itemsInCart: filteredItemsFromCart,
                 // total: filteredItemsToCart.length
             }
             

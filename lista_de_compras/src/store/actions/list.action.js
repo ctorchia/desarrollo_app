@@ -5,6 +5,7 @@ export const REMOVE_ITEM = 'REMOVE_ITEM'
 export const CLEAR_LIST = 'CLEAR_LIST'
 export const CONFIRM_LIST = 'CONFIRM_LIST'
 export const MOVE_TO_CART = 'MOVE_TO_CART'
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 
 export const addItem = (item) => {
     return {
@@ -56,9 +57,16 @@ export const confirmList = (list, total) => {
 
 export const moveToCart = (itemId) => {
     console.log("En list.action:" + itemId)
-
     return {
         type: MOVE_TO_CART,
+        itemId: itemId,
+    }
+}
+
+export const removeFromCart = (itemId) => {
+    console.log("En list.action Remove From Cart:" + itemId)
+    return {
+        type: REMOVE_FROM_CART,
         itemId: itemId,
     }
 }
