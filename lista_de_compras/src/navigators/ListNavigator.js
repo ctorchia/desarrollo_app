@@ -6,9 +6,6 @@ import { Ionicons } from '@expo/vector-icons';
 import ListScreen from '../screens/ListScreen'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-// import { NavigationContainer } from '@react-navigation/native';
-
-
 // function HomeScreen() {
 //   return (
 //     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -56,7 +53,7 @@ export default function App() {
         },
       })}
       tabBarOptions={{
-        activeTintColor: 'tomato',
+        activeTintColor: '#7F5DF0',
         inactiveTintColor: 'gray',
       }}
     >

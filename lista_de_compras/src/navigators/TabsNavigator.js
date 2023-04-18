@@ -10,11 +10,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 // import { Ionicons } from '@expo/vector-icons'
 
-
-
-
-
-
 const BottomTabs = createBottomTabNavigator()
 
 const TabsNavigator = () => {
