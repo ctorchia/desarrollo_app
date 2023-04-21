@@ -31,6 +31,7 @@ const ListsScreen = () => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title} >Historial de Compras</Text>
       <FlatList 
         data={lists}
         renderItem={renderListsItem}
@@ -46,5 +47,10 @@ const styles = StyleSheet.create({
   container:{
     flex:1,
     marginTop: 36
+  },
+  title:{
+    fontSize: 24,
+    textAlign: 'center',
+    marginBottom: 10
   }
 })

@@ -14,7 +14,6 @@ const ListsItem = ({item,onDelete}) => {
     <View style={styles.order}>
         <View>
             <Text style={styles.date}>{formatDay(item.date)}</Text>
-            {/* <Text style={styles.total}>$ {item.total}</Text> */}
         </View>
         <View style={styles.actions}>
             <TouchableOpacity onPress={()=> onDelete(item.id)}>
@@ -32,8 +31,8 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: 10,
-        margin:10,
+        padding: 5,
+        margin:5,
         borderColor:"#ccc",
         borderWidth:1,
         borderRadius:6,
