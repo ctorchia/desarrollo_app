@@ -48,16 +48,9 @@ const ListScreen = () => {
         />
       </View>
       <View style={styles.footer}>
-        <Button title='Confirmar Lista' onPress={() => {
+        <Button title='Guardar Lista en Historial' onPress={() => {
           onHandleConfirmList()
         }} />
-        {/* <TouchableOpacity style={styles.confirm} onPress={onHandleConfirmList}>
-          <Text>Confirmar Lista</Text>
-          <View style={styles.total}>
-            <Text style={styles.text}>Total de Productos: </Text>
-            <Text style={styles.text}>{total}</Text>
-          </View>
-        </TouchableOpacity> */}
       </View>
     </View>
   )
