@@ -5,7 +5,6 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react'
 
 const ListItem = ({ item, onDelete, moveToCart, colorBack }) => {
-    // onPress={() => onSelected(item)}
     return (
         <TouchableOpacity>
             <View style={[styles.productItem, { backgroundColor: colorBack }]}>
@@ -14,15 +13,14 @@ const ListItem = ({ item, onDelete, moveToCart, colorBack }) => {
                     <View>
                         <Text style={styles.title}>{item.name}</Text>
                         <Text style={styles.description}>{item.description}</Text>
-                        <Text>{item.quantity}</Text>
+                        <Text>Cantidad: {item.quantity}</Text>
                     </View>
-                    <View>
-                        <TouchableOpacity onPress={() => onDelete(item.id)}>
+                    <View style={styles.buttonContainer}>
+                        <TouchableOpacity style={styles.button} onPress={() => onDelete(item.id)}>
                             <Ionicons name="trash" size={24} />
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => moveToCart(item.id)}>
+                        <TouchableOpacity style={styles.button} onPress={() => moveToCart(item.id)}>
                             <MaterialCommunityIcons name="cart-arrow-down" size={24} color="black" />
-                            {/* <Ionicons name="trash" size={24} /> */}
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -35,16 +33,15 @@ export default ListItem
 
 const styles = StyleSheet.create({
     productItem: {
-        // borderBottomColor: '#ccc',
         borderBottomWidth: 1,
-        paddingVertical: 16,
-        paddingHorizontal: 30,
+        paddingVertical: 10,
+        paddingHorizontal: 15,
         flexDirection: 'row',
         alignItems: 'center'
     },
     image: {
-        width: 70,
-        height: 70,
+        width: 55,
+        height: 55,
         borderRadius: 10,
         marginRight: 20,
     },
@@ -55,7 +52,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start'
     },
     title: {
-        fontSize: 20,
+        fontSize: 18,
         fontFamily: 'OpenSans_700Bold',
         marginBottom: 6
     },
@@ -68,6 +65,14 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     description: {
-        fontSize: 16,
+        fontSize: 12,
+    },
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingLeft: 10,
+    },
+    button: {
+        marginLeft: 10,
     }
 })
