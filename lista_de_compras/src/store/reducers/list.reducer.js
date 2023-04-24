@@ -48,15 +48,14 @@ const ListReducer = (state = initialState, action) => {
                 items: [],
                 total: 0
             }
-        case CONFIRM_LIST:
 
         case MOVE_TO_CART:
-            console.log("En Reducer:" + action.itemId)
+            console.log("En Reducer 1:" + action.itemId)
             const itemToCart = state.items.find(item => item.id === action.itemId)
-            console.log("En Reducer:" + itemToCart.name)
-            console.log("En Reducer:" + state.items.length)
+            console.log("En Reducer 2:" + itemToCart.name)
+            console.log("En Reducer 3:" + state.items.length)
             const filteredItemsToCart = state.items.filter(item => item.id !== action.itemId)
-            console.log("En Reducer:" + filteredItemsToCart.length)
+            console.log("En Reducer 4:" + filteredItemsToCart.length)
             const itemsInCart = [...state.itemsInCart, itemToCart]
             return {
                 ...state,
@@ -76,6 +75,8 @@ const ListReducer = (state = initialState, action) => {
                 // total: filteredItemsToCart.length
             }
             
+        case CONFIRM_LIST:
+
         default:
             return state
     }
