@@ -1,4 +1,4 @@
-import { DELETE_LISTS, GET_LISTS } from '../actions/lists.action';
+import { DELETE_LISTS, GET_LISTS, SELECT_LIST } from '../actions/lists.action';
 
 const initialState ={
     list:[]
@@ -16,6 +16,13 @@ const listsReducer = (state = initialState, action) => {
                 ...state,
                 list: state.list.filter(list => list.id !== action.id)
             }
+
+        case SELECT_LIST:
+            return {
+                ...state,
+                selected: state.list.find(list => list.id === action.listId)
+            }
+            
         default:
             return state;
     }

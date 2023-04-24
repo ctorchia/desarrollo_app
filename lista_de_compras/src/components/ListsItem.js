@@ -10,10 +10,10 @@ const formatDay = (time) => {
     return date.toLocaleDateString();
 }
 
-const ListsItem = ({ item, onDelete, colorBack }) => {
+const ListsItem = ({ item, onDelete, onSelect,colorBack }) => {
     // onPress={() => onSelected(item)}
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => onSelect(item)}>
             <View style={[styles.productItem, { backgroundColor: "#EDDEA4" }]}>
                 {/* <Image style={styles.image} source={{ uri: item.image }} /> */}
                 <View style={styles.details}>

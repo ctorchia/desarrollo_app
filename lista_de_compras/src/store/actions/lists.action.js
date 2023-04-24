@@ -1,7 +1,13 @@
 import { URL_API } from '../../constants/database';
 
+export const SELECT_LIST = 'SELECT_LIST';
 export const GET_LISTS = 'GET_LISTS';
 export const DELETE_LISTS = 'DELETE_LISTS';
+
+export const selectList = (id) => ({
+    type: SELECT_LIST,
+    listId: id,
+})
 
 export const getLists = () => {
     return async dispatch => {

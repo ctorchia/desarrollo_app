@@ -45,7 +45,7 @@ const HistoryNavigator = () => {
       <Stack.Screen
         name="ListsDetail"
         component={ListsDetailScreen}
-        options={({ route }) => ({ title: route.params.categoryName })}
+        options={({ route }) => ({ title: "Detalle de Compra" })}
 
       />
 
