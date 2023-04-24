@@ -1,16 +1,20 @@
 import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { COLORS } from '../constants/colors'
 import ImageSelector from '../components/ImageSelector'
+import {Picker} from '@react-native-picker/picker';
 import React from 'react'
 import { addProduct } from '../store/actions/products.action'
-import { useDispatch } from 'react-redux'
 
 const NewProductScreen = ({ navigation }) => {
     const dispatch = useDispatch()
     const [titleValue, setTitleValue] = React.useState('')
     const [imageValue, setImageValue] = React.useState('')
     const [descriptionValue, setDescriptionValue] = React.useState('')
+    const [categoryValue, setCategoryValue] = React.useState('')
+
+    const categories = useSelector(state => state.categories.categories)
 
     const titleChangeHandler = text => {
         setTitleValue(text)
@@ -21,8 +25,8 @@ const NewProductScreen = ({ navigation }) => {
     }
 
     const saveProductHandler = () => {
-        console.log(titleValue, imageValue, descriptionValue)
-        dispatch(addProduct(titleValue,imageValue,descriptionValue))
+        console.log(titleValue, imageValue, descriptionValue, categoryValue)
+        dispatch(addProduct(titleValue, imageValue, descriptionValue, categoryValue))
         navigation.navigate('Home')
     }
 
@@ -30,13 +34,25 @@ const NewProductScreen = ({ navigation }) => {
         <ScrollView>
             <View style={styles.container}>
                 <Text style={styles.label}>Nombre</Text>
-                <TextInput style={styles.input} onChangeText={titleChangeHandler}/>
+                <TextInput style={styles.input} onChangeText={titleChangeHandler} />
                 <Text style={styles.label}>Descripcion</Text>
-                <TextInput style={styles.input} onChangeText={descriptionChangeHandler}/>
-                <ImageSelector onImage={image=>setImageValue(image)} />
+                <TextInput style={styles.input} onChangeText={descriptionChangeHandler} />
+
+                <Picker
+                    selectedValue={categoryValue}
+                    style={{ height: 50, width: 150 }}
+                    onValueChange={(itemValue, itemIndex) => setCategoryValue(itemValue)}
+                >
+                    <Picker.Item label="Selecciona una categoria" value="" />
+                    {categories.map((category) => (
+                        <Picker.Item label={category.title} value={category.id} />
+                    ))}
+                </Picker>
+
+                <ImageSelector onImage={image => setImageValue(image)} />
                 <Button title="Guardar" color={COLORS.MAROON} onPress={saveProductHandler} />
             </View>
-           
+
         </ScrollView>
     )
 }

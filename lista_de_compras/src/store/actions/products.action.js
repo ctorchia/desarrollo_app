@@ -14,7 +14,7 @@ export const filterProducts = (id) => ({
     categoryId: id,
 })
 
-export const addProduct = (name, image, description) => {
+export const addProduct = (name, image, description, category) => {
     console.log(image)
     console.log(description)
 
@@ -35,7 +35,7 @@ export const addProduct = (name, image, description) => {
         // console.log(name)
         // console.log(image)
 
-        dispatch({ type: ADD_PRODUCT, payload: { name, image: Path, description } })
+        dispatch({ type: ADD_PRODUCT, payload: { name, image: Path, description, category } })
     }
 }
 

@@ -23,7 +23,7 @@ const ProductReducer = (state = initialState, action) => {
             }
         case ADD_PRODUCT:
             console.log("Solo el dato de description en payload:", action.payload.description)
-            const newProduct = new Product(Date.now(), action.payload.name, action.payload.image, action.payload.description , "2")
+            const newProduct = new Product(Date.now(), action.payload.name, action.payload.image, action.payload.description , action.payload.category)
             console.log(newProduct)
             
             return {
