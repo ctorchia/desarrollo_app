@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 
 import { Entypo } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
+import HistoryNavigator from './HistoryNavigator'
 import ListNavigator from './ListNavigator'
 import ListsScreen from '../screens/ListsScreen';
 import ProductNavigator from './ProductNavigator'
@@ -44,7 +45,7 @@ const TabsNavigator = () => {
         }}
       />
 
-      <BottomTabs.Screen name="Lists-tab" component={ListsScreen}
+      <BottomTabs.Screen name="Lists-tab" component={HistoryNavigator}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.tabBarIcon}>

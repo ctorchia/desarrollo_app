@@ -31,7 +31,7 @@ const ListsScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title} >Historial de Compras</Text>
+      {/* <Text style={styles.title} >Historial de Compras</Text> */}
       <FlatList 
         data={lists}
         renderItem={renderListsItem}
