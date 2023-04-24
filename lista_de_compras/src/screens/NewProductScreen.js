@@ -10,22 +10,29 @@ const NewProductScreen = ({ navigation }) => {
     const dispatch = useDispatch()
     const [titleValue, setTitleValue] = React.useState('')
     const [imageValue, setImageValue] = React.useState('')
+    const [descriptionValue, setDescriptionValue] = React.useState('')
 
     const titleChangeHandler = text => {
         setTitleValue(text)
     }
 
+    const descriptionChangeHandler = text => {
+        setDescriptionValue(text)
+    }
+
     const saveProductHandler = () => {
-        console.log(titleValue, imageValue)
-        dispatch(addProduct(titleValue,imageValue))
+        console.log(titleValue, imageValue, descriptionValue)
+        dispatch(addProduct(titleValue,imageValue,descriptionValue))
         navigation.navigate('Home')
     }
 
     return (
         <ScrollView>
             <View style={styles.container}>
-                <Text style={styles.label}>Titulo</Text>
+                <Text style={styles.label}>Nombre</Text>
                 <TextInput style={styles.input} onChangeText={titleChangeHandler}/>
+                <Text style={styles.label}>Descripcion</Text>
+                <TextInput style={styles.input} onChangeText={descriptionChangeHandler}/>
                 <ImageSelector onImage={image=>setImageValue(image)} />
                 <Button title="Guardar" color={COLORS.MAROON} onPress={saveProductHandler} />
             </View>
@@ -40,8 +47,8 @@ const styles = StyleSheet.create({
         margin: 30,
     },
     label: {
-        fontSize: 18,
-        marginBottom: 16
+        fontSize: 14,
+        marginBottom: 5
     },
     input: {
         borderBottomColor: '#ccc',

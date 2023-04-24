@@ -14,8 +14,10 @@ export const filterProducts = (id) => ({
     categoryId: id,
 })
 
-export const addProduct = (name, image) => {
+export const addProduct = (name, image, description) => {
     console.log(image)
+    console.log(description)
+
     return async dispatch => {
         const fileName = image.split('/').pop()
         const Path = FileSystem.documentDirectory + fileName
@@ -33,7 +35,7 @@ export const addProduct = (name, image) => {
         // console.log(name)
         // console.log(image)
 
-        dispatch({type: ADD_PRODUCT, payload: {name, image: Path}})
+        dispatch({ type: ADD_PRODUCT, payload: { name, image: Path, description } })
     }
 }
 

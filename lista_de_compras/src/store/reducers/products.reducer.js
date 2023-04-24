@@ -22,7 +22,8 @@ const ProductReducer = (state = initialState, action) => {
                 filteredProducts: state.products.filter(product => product.category === action.categoryId)
             }
         case ADD_PRODUCT:
-            const newProduct = new Product(Date.now(), action.payload.name, action.payload.image, "2")
+            console.log("Solo el dato de description en payload:", action.payload.description)
+            const newProduct = new Product(Date.now(), action.payload.name, action.payload.image, action.payload.description , "2")
             console.log(newProduct)
             
             return {
