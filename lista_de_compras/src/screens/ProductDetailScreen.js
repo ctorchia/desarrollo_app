@@ -2,6 +2,7 @@ import { Button, Image, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { FONTS } from '../constants/fonts';
 import { addItem } from '../store/actions/list.action'
 
 const ProductDetailScreen = ({ navigation }) => {
@@ -9,7 +10,7 @@ const ProductDetailScreen = ({ navigation }) => {
   const product = useSelector(state => state.products.selected)
   const dispatch = useDispatch()
   const onHandleAddToList = () => {
-    dispatch(addItem({...product, quantity: 1}))
+    dispatch(addItem({ ...product, quantity: 1 }))
   }
 
   useEffect(() => {
@@ -20,7 +21,7 @@ const ProductDetailScreen = ({ navigation }) => {
 
   return (
     <View style={styles.screen}>
-      <Image source={{ uri: product.image }} style={{ width: 200, height: 200 }} />   
+      <Image source={{ uri: product.image }} style={{ width: 200, height: 200 }} />
       <Text style={styles.title}>{product.name}</Text>
       <Text style={styles.description}>{product.description}</Text>
       <Button title='Agregar a Lista' onPress={() => {
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontFamily: 'OpenSans_700Bold',
+    fontFamily: FONTS.main,
     marginTop: 10,
     marginBottom: 10
   },

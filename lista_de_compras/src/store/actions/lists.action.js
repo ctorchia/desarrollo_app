@@ -12,13 +12,12 @@ export const selectList = (id) => ({
 export const getLists = () => {
     return async dispatch => {
         try {
-            const response = await fetch(`${URL_API}/lists.json`,{
+            const response = await fetch(`${URL_API}/lists.json`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                 }
             });
-            console.log(response)
             const resData = await response.json();
             const lists = Object.keys(resData).map(key => {
                 return {
@@ -46,7 +45,6 @@ export const deleteLists = (id) => {
                 }
             });
             const resData = await response.json();
-            console.log(resData);
             dispatch({
                 type: DELETE_LISTS,
                 id

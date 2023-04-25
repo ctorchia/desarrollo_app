@@ -8,7 +8,7 @@ import { selectCategory } from '../store/actions/category.action'
 const CategoriesScreen = ({ navigation }) => {
 
     const categories = useSelector(state => state.categories.categories)
-    const dispatch = useDispatch() 
+    const dispatch = useDispatch()
 
     const onSelectGridItem = (item) => {
         dispatch(selectCategory(item.id))

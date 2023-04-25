@@ -5,33 +5,30 @@ import React, { useState } from 'react'
 
 import { COLORS } from '../constants/colors'
 
-const ImageSelector = ({onImage}) => {
+const ImageSelector = ({ onImage }) => {
     const [pickedUri, setPickedUri] = useState()
 
     const VerifyPermissions = async () => {
         const { status } = await ImagePicker.requestCameraPermissionsAsync()
-        console.log(status)
-        if(status !== 'granted') {
+        if (status !== 'granted') {
             Alert.alert('Permisos insuficientes')
             return false
         }
         return true
-
-     }
+    }
 
     const handlerTakeImage = async () => {
         const isCameraOk = await VerifyPermissions()
         if (!isCameraOk) return
-        
+
         const image = await ImagePicker.launchCameraAsync({
-            allowsEditing: true, 
-            aspect: [16,9],
+            allowsEditing: true,
+            aspect: [16, 9],
             quality: 0.8,
         })
-        console.log(image.assets)
         setPickedUri(image.assets[0].uri)
         onImage(image.assets[0].uri)
-     }
+    }
 
     return (
         <View style={styles.container}>
@@ -43,7 +40,7 @@ const ImageSelector = ({onImage}) => {
             </View>
             <Button
                 title="Tomar foto"
-                color={COLORS.LIGTH_PINK}
+                color={COLORS.category04}
                 onPress={handlerTakeImage}
             />
         </View>

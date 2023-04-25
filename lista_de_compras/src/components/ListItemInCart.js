@@ -1,11 +1,10 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { FONTS } from '../constants/fonts';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react'
 
-const ListItemInCart = ({ item, onDelete, removeFromCart, colorBack }) => {
-    // onPress={() => onSelected(item)}
+const ListItemInCart = ({ item, removeFromCart, colorBack }) => {
     return (
         <TouchableOpacity>
             <View style={[styles.productItem, { backgroundColor: colorBack }]}>
@@ -18,8 +17,7 @@ const ListItemInCart = ({ item, onDelete, removeFromCart, colorBack }) => {
                     </View>
                     <View>
                         <TouchableOpacity onPress={() => removeFromCart(item.id)}>
-                        <MaterialCommunityIcons name="cart-arrow-up" size={24} color="black" />
-                            {/* <Ionicons name="trash" size={24} /> */}
+                            <MaterialCommunityIcons name="cart-arrow-up" size={24} color="black" />
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -52,7 +50,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        fontFamily: 'OpenSans_700Bold',
+        fontFamily: FONTS.main,
         marginBottom: 6
     },
     details: {

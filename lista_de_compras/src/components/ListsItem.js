@@ -1,9 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
+import { COLORS } from '../constants/colors'
+import { FONTS } from '../constants/fonts';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react'
-import colors from '../constants/colors';
 
 const formatDay = (time) => {
     const date= new Date(time)
@@ -11,24 +11,16 @@ const formatDay = (time) => {
 }
 
 const ListsItem = ({ item, onDelete, onSelect,colorBack }) => {
-    // onPress={() => onSelected(item)}
     return (
         <TouchableOpacity onPress={() => onSelect(item)}>
-            <View style={[styles.productItem, { backgroundColor: "#EDDEA4" }]}>
-                {/* <Image style={styles.image} source={{ uri: item.image }} /> */}
+            <View style={[styles.productItem, { backgroundColor: COLORS.category03 }]}>
                 <View style={styles.details}>
                     <View>
-                        {/* <Text style={styles.title}>{item.name}</Text> */}
                         <Text style={styles.date}>{formatDay(item.date)}</Text>
-                        {/* <Text style={styles.description}>{item.description}</Text> */}
-                        {/* <Text>{item.quantity}</Text> */}
                     </View>
                     <View>
                         <TouchableOpacity onPress={() => onDelete(item.id)}>
                         <Ionicons name="trash" size={24} />
-
-                        {/* <MaterialCommunityIcons name="cart-arrow-up" size={24} color="black" /> */}
-                            {/* <Ionicons name="trash" size={24} /> */}
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -61,7 +53,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        fontFamily: 'OpenSans_700Bold',
+        fontFamily: FONTS.main,
         marginBottom: 6
     },
     details: {
@@ -84,43 +76,3 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     }
 })
-
-
-
-
-// const ListsItem = ({item,onDelete}) => {
-//   return (
-//     <View style={styles.order}>
-//         <View>
-//             <Text style={styles.date}>{formatDay(item.date)}</Text>
-//         </View>
-//         <View style={styles.actions}>
-//             <TouchableOpacity onPress={()=> onDelete(item.id)}>
-//                 <Ionicons name="md-trash" size={22}  />
-//             </TouchableOpacity>
-//         </View>
-//     </View>
-//   )
-// }
-
-// export default ListsItem
-
-// const styles = StyleSheet.create({
-//     order:{
-//         flexDirection:'row',
-//         justifyContent: 'space-between',
-//         alignItems: 'center',
-//         padding: 5,
-//         margin:5,
-//         borderColor:"#ccc",
-//         borderWidth:1,
-//         borderRadius:6,
-//     },
-//     date: {
-//         fontSize:18,
-//     },
-//     total: {
-//         fontSize:18,
-//         fontFamily: 'OpenSans_700Bold'
-//     }
-// })

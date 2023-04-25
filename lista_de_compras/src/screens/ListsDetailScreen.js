@@ -1,63 +1,38 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { FlatList, StyleSheet, View } from 'react-native'
 
-import { FlatList } from 'react-native'
+import { COLORS } from '../constants/colors'
 import ListsDetail from '../components/ListsDetail'
-import ProductItem from '../components/ProductItem'
-
-// import { filterProducts, selectProduct } from '../store/actions/products.action'
-
-
-
-
+import { useSelector } from 'react-redux'
 
 const ListsDetailScreen = ({ route, navigation }) => {
 
     const categories = useSelector(state => state.categories.categories)
 
-
-    const dispatch = useDispatch()
-    //   const categoryProducts = useSelector(state => state.products.filteredProducts)
     const list = useSelector(state => state.lists.selected)
-
-    //   useEffect(() => {
-    //     dispatch(filterProducts(category.id))
-    //   }, []);
-
-    const handleOnSelected = (item) => {
-        // dispatch(selectProduct(item.id))
-        // navigation.navigate('Detail', {})
-    }
 
     const renderListsItem = ({ item }) => {
         const colorBack = categories.find(category => category.id === item.category).color
-        return <ListsDetail item = { item } onSelected = { handleOnSelected } colorBack={colorBack}/>
+        return <ListsDetail item={item} colorBack={colorBack} />
     }
 
     return (
-        <FlatList
-            data={list.items}
-            keyExtractor={(item) => item.id}
-            renderItem={renderListsItem}
-        />
+        <View style={styles.container}>
+            <FlatList
+                data={list.items}
+                keyExtractor={(item) => item.id}
+                renderItem={renderListsItem}
+            />
+        </View>
     )
 }
 
 export default ListsDetailScreen
 
-
-
-
-
-
-
-// import React from 'react'
-// import { Text } from 'react-native'
-
-// const ListsDetailScreen = () => {
-//   return (
-//     <Text>ListsDetail</Text>
-//   )
-// }
-
-// export default ListsDetailScreen
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      padding: 12,
+      backgroundColor: COLORS.white,
+      paddingBottom: 120,
+    }
+  })

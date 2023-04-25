@@ -23,10 +23,10 @@ const CategoryProductScreen = ({ route, navigation }) => {
     navigation.navigate('Detail', {})
   }
 
-  const renderProductItem = ({ item }) => (<ProductItem item={item} onSelected={handleOnSelected} color={category.color}/>)
+  const renderProductItem = ({ item }) => (<ProductItem item={item} onSelected={handleOnSelected} color={category.color} />)
 
   return (
-    <FlatList 
+    <FlatList
       data={categoryProducts}
       keyExtractor={(item) => item.id}
       renderItem={renderProductItem}

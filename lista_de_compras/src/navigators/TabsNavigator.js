@@ -1,15 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 
+import { COLORS } from '../constants/colors'
 import { Entypo } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import HistoryNavigator from './HistoryNavigator'
 import ListNavigator from './ListNavigator'
-import ListsScreen from '../screens/ListsScreen';
 import ProductNavigator from './ProductNavigator'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-
-// import { Ionicons } from '@expo/vector-icons'
 
 const BottomTabs = createBottomTabNavigator()
 
@@ -26,8 +24,8 @@ const TabsNavigator = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.tabBarIcon}>
-              <Entypo name="shop" size={24} color={focused ? '#7F5DF0' : '#000'} />
-              <Text style={{ color: focused ? '#7F5DF0' : '#000' }}>Productos</Text>
+              <Entypo name="shop" size={24} color={focused ? COLORS.active : COLORS.black} />
+              <Text style={{ color: focused ? COLORS.active : COLORS.black }}>Productos</Text>
             </View>
           )
         }}
@@ -37,9 +35,8 @@ const TabsNavigator = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.tabBarIcon}>
-              <Fontisto name="list-2" size={24} color={focused ? '#7F5DF0' : '#000'} />
-              {/* <Ionicons name="md-cart" size={24} color={focused ? '#7F5DF0' : '#000'} /> */}
-              <Text style={{ color: focused ? '#7F5DF0' : '#000' }}>Lista</Text>
+              <Fontisto name="list-2" size={24} color={focused ? COLORS.active : COLORS.black} />
+              <Text style={{ color: focused ? COLORS.active : COLORS.black }}>Lista</Text>
             </View>
           )
         }}
@@ -49,9 +46,8 @@ const TabsNavigator = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.tabBarIcon}>
-              <Fontisto name="list-2" size={24} color={focused ? '#7F5DF0' : '#000'} />
-              {/* <Ionicons name="md-cart" size={24} color={focused ? '#7F5DF0' : '#000'} /> */}
-              <Text style={{ color: focused ? '#7F5DF0' : '#000' }}>Historial</Text>
+              <Fontisto name="list-2" size={24} color={focused ? COLORS.active : COLORS.black} />
+              <Text style={{ color: focused ? COLORS.active : COLORS.black }}>Historial</Text>
             </View>
           )
         }}
@@ -64,13 +60,12 @@ export default TabsNavigator
 
 const styles = StyleSheet.create({
   tabBar: {
-    shadowColor: '#7F5DF0',
+    shadowColor: COLORS.active,
     shadowOffset: {
       width: 0,
       height: 10
     },
     shadowOpacity: 0.10,
-    // shadowRadius: 0.10,
     elevation: 5,
     position: 'absolute',
     bottom: 25,

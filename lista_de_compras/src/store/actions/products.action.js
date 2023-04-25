@@ -15,8 +15,6 @@ export const filterProducts = (id) => ({
 })
 
 export const addProduct = (name, image, description, category) => {
-    console.log(image)
-    console.log(description)
 
     return async dispatch => {
         const fileName = image.split('/').pop()
@@ -31,9 +29,6 @@ export const addProduct = (name, image, description, category) => {
             console.log(error.message)
             throw error
         }
-
-        // console.log(name)
-        // console.log(image)
 
         dispatch({ type: ADD_PRODUCT, payload: { name, image: Path, description, category } })
     }

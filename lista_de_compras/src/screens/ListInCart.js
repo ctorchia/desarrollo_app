@@ -1,40 +1,28 @@
-import { Button, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { confirmList, removeFromCart, removeItem } from '../store/actions/list.action'
+import { FlatList, StyleSheet, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { COLORS } from '../constants/colors'
+import { FONTS } from '../constants/fonts';
 import ListItemInCart from '../components/ListItemInCart'
 import React from 'react'
+import { removeFromCart } from '../store/actions/list.action'
 
 const ListInCart = () => {
 
   const categories = useSelector(state => state.categories.categories)
-  console.log(categories)
 
   const list = useSelector(state => state.list.itemsInCart)
-  console.log("itemsInCart:"+list)
-//   const total = useSelector(state => state.list.total)
-
-  // const onHandleDeleteItem = (itemId) => {
-  //   console.log("Elimina item");
-  //   dispatch(removeItem(itemId))
-  // }
+  list.sort((a, b) => a.category - b.category)
 
   const onHandleRemoveFromCart = (itemId) => {
-    console.log("Saca Item del Carrito");
-    console.log("En onHandle:" + itemId)
     dispatch(removeFromCart(itemId))
   }
 
   const dispatch = useDispatch()
 
-//   const onHandleConfirmList = () => {
-//     console.log("Confirma lista");
-//     dispatch(confirmList(list, total))
-//   }
-
   const renderListItem = ({ item }) => {
     const colorBack = categories.find(category => category.id === item.category).color
-    return <ListItemInCart item={item} removeFromCart={onHandleRemoveFromCart} colorBack={colorBack} /> // colorBack={colorBack}
+    return <ListItemInCart item={item} removeFromCart={onHandleRemoveFromCart} colorBack={colorBack} />
   }
 
   return (
@@ -46,20 +34,6 @@ const ListInCart = () => {
           keyExtractor={(item) => item.id}
         />
       </View>
-      
-      {/* <View style={styles.footer}>
-        <Button title='Confirmar Lista' onPress={() => {
-          onHandleConfirmList()
-        }} />
-      </View> */}
-
-        {/* <TouchableOpacity style={styles.confirm} onPress={onHandleConfirmList}>
-          <Text>Confirmar Lista</Text>
-          <View style={styles.total}>
-            <Text style={styles.text}>Total de Productos: </Text>
-            <Text style={styles.text}>{total}</Text>
-          </View>
-        </TouchableOpacity> */}
     </View>
   )
 }
@@ -70,7 +44,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 12,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.white,
     paddingBottom: 120,
   },
   list: {
@@ -78,11 +52,11 @@ const styles = StyleSheet.create({
   },
   footer: {
     padding: 12,
-    borderTopColor: "#ccc",
+    borderTopColor: COLORS.inactive,
     borderTopWidth: 1,
   },
   confirm: {
-    backgroundColor: "#F5F5F5",
+    backgroundColor: COLORS.inactive,
     borderRadius: 10,
     padding: 10,
     flexDirection: 'row',
@@ -94,7 +68,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    fontFamily: 'OpenSans_700Bold',
+    fontFamily: FONTS.main,
     padding: 8,
   }
 })

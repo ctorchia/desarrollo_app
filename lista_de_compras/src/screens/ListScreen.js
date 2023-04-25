@@ -1,35 +1,31 @@
-import { Button, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Button, FlatList, StyleSheet, View } from 'react-native'
 import { confirmList, moveToCart, removeItem } from '../store/actions/list.action'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { COLORS } from '../constants/colors'
+import { FONTS } from '../constants/fonts';
 import ListItem from '../components/ListItem'
 import React from 'react'
 
 const ListScreen = () => {
 
   const categories = useSelector(state => state.categories.categories)
-  console.log(categories)
 
   const list = useSelector(state => state.list.items)
   list.sort((a, b) => a.category - b.category)
-  console.log(list)
   const total = useSelector(state => state.list.total)
 
   const onHandleDeleteItem = (itemId) => {
-    console.log("Elimina item");
     dispatch(removeItem(itemId))
   }
 
   const onHandleMoveToCart = (itemId) => {
-    console.log("Mueve item a carrito");
-    console.log("En onHandle:" + itemId)
     dispatch(moveToCart(itemId))
   }
 
   const dispatch = useDispatch()
 
   const onHandleConfirmList = () => {
-    console.log("Confirma lista");
     dispatch(confirmList(list, total))
   }
 
@@ -62,7 +58,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 12,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.white,
     paddingBottom: 120,
   },
   list: {
@@ -70,11 +66,11 @@ const styles = StyleSheet.create({
   },
   footer: {
     padding: 12,
-    borderTopColor: "#ccc",
+    borderTopColor: COLORS.inactive,
     borderTopWidth: 1,
   },
   confirm: {
-    backgroundColor: "#F5F5F5",
+    backgroundColor: COLORS.inactive,
     borderRadius: 10,
     padding: 10,
     flexDirection: 'row',
@@ -86,7 +82,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    fontFamily: 'OpenSans_700Bold',
+    fontFamily: FONTS.main,
     padding: 8,
   }
 })

@@ -30,8 +30,8 @@ export const clearList = () => {
 export const confirmList = (list, total) => {
     return async dispatch => {
         try {
-            
-            const response = await fetch(URL_API+'lists.json', {
+
+            const response = await fetch(URL_API + 'lists.json', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -44,7 +44,6 @@ export const confirmList = (list, total) => {
             });
 
             const result = await response.json();
-            // console.log(result);
             dispatch({
                 type: CONFIRM_LIST,
                 confirm: true
@@ -56,7 +55,6 @@ export const confirmList = (list, total) => {
 }
 
 export const moveToCart = (itemId) => {
-    console.log("En list.action:" + itemId)
     return {
         type: MOVE_TO_CART,
         itemId: itemId,
@@ -64,7 +62,6 @@ export const moveToCart = (itemId) => {
 }
 
 export const removeFromCart = (itemId) => {
-    console.log("En list.action Remove From Cart:" + itemId)
     return {
         type: REMOVE_FROM_CART,
         itemId: itemId,

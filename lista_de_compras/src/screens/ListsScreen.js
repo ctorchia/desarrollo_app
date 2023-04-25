@@ -18,27 +18,24 @@ const ListsScreen = ({ navigation }) => {
   );
 
   const onHandleDeleteList = (id) => {
-    console.log('delete list')
     dispatch(deleteLists(id))
   }
 
   const onSelectListItem = (item) => {
     dispatch(selectList(item.id))
     navigation.navigate('ListsDetail', {})
-    console.log("item", item)
-}
+  }
 
   const renderListsItem = ({ item }) => (
     <ListsItem
       item={item}
-      onDelete={onHandleDeleteList} 
+      onDelete={onHandleDeleteList}
       onSelect={onSelectListItem}
     />
   )
 
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.title} >Historial de Compras</Text> */}
       <FlatList
         data={lists}
         renderItem={renderListsItem}

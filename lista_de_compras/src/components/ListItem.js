@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
+import { FONTS } from '../constants/fonts';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react'
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        fontFamily: 'OpenSans_700Bold',
+        fontFamily: FONTS.main,
         marginBottom: 6
     },
     details: {

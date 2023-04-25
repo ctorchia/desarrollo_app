@@ -1,8 +1,9 @@
-import { Platform, Text, TouchableOpacity } from 'react-native'
+import { Platform, TouchableOpacity } from 'react-native'
 
 import { COLORS } from '../constants/colors'
 import CategoriesScreen from '../screens/CategoriesScreen'
 import CategoryProductScreen from '../screens/CategoryProductScreen'
+import { FONTS } from '../constants/fonts';
 import { Ionicons } from '@expo/vector-icons'
 import NewProductScreen from '../screens/NewProductScreen'
 import ProductDetailScreen from '../screens/ProductDetailScreen'
@@ -20,7 +21,7 @@ const ProductNavigator = () => {
         },
         headerTintColor: Platform.OS === 'android' ? 'white' : COLORS.primary,
         headerTitleStyle: {
-          fontFamily: 'OpenSans_700Bold'
+          fontFamily: FONTS.main
         }
       }}
     >

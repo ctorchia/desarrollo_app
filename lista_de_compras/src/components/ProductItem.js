@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-import { COLORS } from '../constants/colors'
+import { FONTS } from '../constants/fonts';
 import React from 'react'
 
 const ProductItem = ({ item, onSelected, color }) => {
@@ -23,7 +23,6 @@ export default ProductItem
 const styles = StyleSheet.create({
 
     productItem: {
-        // borderBottomColor: '#ccc',
         borderBottomWidth: 1,
         paddingVertical: 16,
         paddingHorizontal: 30,
@@ -34,7 +33,7 @@ const styles = StyleSheet.create({
         width: 70,
         height: 70,
         borderRadius: 10,
-        marginRight: 20, 
+        marginRight: 20,
     },
     info: {
         marginLeft: 25,
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 20,
-        fontFamily: 'OpenSans_700Bold',
+        fontFamily: FONTS.main,
         marginBottom: 6
     },
     details: {

@@ -1,4 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+
+import { FONTS } from '../constants/fonts';
 import React from 'react'
 
 const GridItem = ({
@@ -6,15 +8,15 @@ const GridItem = ({
     onSelect
 }) => {
 
-  return (
-    <View style={styles.gridItem}>
-        <TouchableOpacity onPress={() => onSelect(item)} style={[styles.container, { backgroundColor: item.color}]}>
-            <View>
-            <Text style={styles.title}>{item.title}</Text>
-            </View>
-        </TouchableOpacity>
-    </View>
-  )
+    return (
+        <View style={styles.gridItem}>
+            <TouchableOpacity onPress={() => onSelect(item)} style={[styles.container, { backgroundColor: item.color }]}>
+                <View>
+                    <Text style={styles.title}>{item.title}</Text>
+                </View>
+            </TouchableOpacity>
+        </View>
+    )
 }
 
 export default GridItem
@@ -39,6 +41,6 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end'
     },
     title: {
-        fontFamily: 'OpenSans_700Bold',
+        fontFamily: FONTS.main,
     }
 })

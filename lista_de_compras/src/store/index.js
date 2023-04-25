@@ -24,6 +24,3 @@ const persistedReducer = persistReducer(persistConfig, RootReducer) // Redux Per
 
 export const store = createStore(persistedReducer, applyMiddleware(thunk)); // Redux Persist
 export const storePersisted = persistStore(store); // Redux Persist
-
-
-// export default createStore(RootReducer, applyMiddleware(thunk));

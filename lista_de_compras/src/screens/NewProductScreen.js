@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { COLORS } from '../constants/colors'
 import ImageSelector from '../components/ImageSelector'
-import {Picker} from '@react-native-picker/picker';
+import { Picker } from '@react-native-picker/picker';
 import React from 'react'
 import { addProduct } from '../store/actions/products.action'
 
@@ -25,7 +25,6 @@ const NewProductScreen = ({ navigation }) => {
     }
 
     const saveProductHandler = () => {
-        console.log(titleValue, imageValue, descriptionValue, categoryValue)
         dispatch(addProduct(titleValue, imageValue, descriptionValue, categoryValue))
         navigation.navigate('Home')
     }
@@ -40,7 +39,7 @@ const NewProductScreen = ({ navigation }) => {
 
                 <Picker
                     selectedValue={categoryValue}
-                    style={{ height: 50, width: 300}}
+                    style={{ height: 50, width: 300 }}
                     onValueChange={(itemValue, itemIndex) => setCategoryValue(itemValue)}
                 >
                     <Picker.Item label="Selecciona una categoria" value="" />
@@ -50,7 +49,7 @@ const NewProductScreen = ({ navigation }) => {
                 </Picker>
 
                 <ImageSelector onImage={image => setImageValue(image)} />
-                <Button title="Guardar" color={COLORS.MAROON} onPress={saveProductHandler} />
+                <Button title="Guardar" color={COLORS.category01} onPress={saveProductHandler} />
             </View>
 
         </ScrollView>
@@ -67,7 +66,7 @@ const styles = StyleSheet.create({
         marginBottom: 5
     },
     input: {
-        borderBottomColor: '#ccc',
+        borderBottomColor: COLORS.category01,
         borderBottomWidth: 1,
         marginBottom: 16,
         paddingHorizontal: 2,

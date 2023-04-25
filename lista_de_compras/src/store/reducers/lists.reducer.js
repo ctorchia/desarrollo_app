@@ -1,7 +1,7 @@
 import { DELETE_LISTS, GET_LISTS, SELECT_LIST } from '../actions/lists.action';
 
-const initialState ={
-    list:[]
+const initialState = {
+    list: []
 }
 
 const listsReducer = (state = initialState, action) => {
@@ -22,7 +22,7 @@ const listsReducer = (state = initialState, action) => {
                 ...state,
                 selected: state.list.find(list => list.id === action.listId)
             }
-            
+
         default:
             return state;
     }
