@@ -13,28 +13,34 @@ import ProductItem from '../components/ProductItem'
 
 const ListsDetailScreen = ({ route, navigation }) => {
 
-  const dispatch = useDispatch()
-//   const categoryProducts = useSelector(state => state.products.filteredProducts)
-  const list = useSelector(state => state.lists.selected)
+    const categories = useSelector(state => state.categories.categories)
 
-//   useEffect(() => {
-//     dispatch(filterProducts(category.id))
-//   }, []);
 
-  const handleOnSelected = (item) => {
-    // dispatch(selectProduct(item.id))
-    // navigation.navigate('Detail', {})
-  }
+    const dispatch = useDispatch()
+    //   const categoryProducts = useSelector(state => state.products.filteredProducts)
+    const list = useSelector(state => state.lists.selected)
 
-  const renderListsItem = ({ item }) => (<ListsDetail item={item} onSelected={handleOnSelected}/>)
+    //   useEffect(() => {
+    //     dispatch(filterProducts(category.id))
+    //   }, []);
 
-  return (
-    <FlatList 
-      data={list.items}
-      keyExtractor={(item) => item.id}
-      renderItem={renderListsItem}
-    />
-  )
+    const handleOnSelected = (item) => {
+        // dispatch(selectProduct(item.id))
+        // navigation.navigate('Detail', {})
+    }
+
+    const renderListsItem = ({ item }) => {
+        const colorBack = categories.find(category => category.id === item.category).color
+        return <ListsDetail item = { item } onSelected = { handleOnSelected } colorBack={colorBack}/>
+    }
+
+    return (
+        <FlatList
+            data={list.items}
+            keyExtractor={(item) => item.id}
+            renderItem={renderListsItem}
+        />
+    )
 }
 
 export default ListsDetailScreen
