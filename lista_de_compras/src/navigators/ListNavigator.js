@@ -29,6 +29,8 @@ export default function App() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
+        activeTintColor: '#7F5DF0',
+        inactiveTintColor: 'gray',
         tabBarIcon: ({ focused, color, size }) => {
           if (route.name === 'Home') {
             return (
@@ -53,10 +55,10 @@ export default function App() {
           }
         },
       })}
-      tabBarOptions={{
-        activeTintColor: '#7F5DF0',
-        inactiveTintColor: 'gray',
-      }}
+      // tabBarOptions={{
+      //   activeTintColor: '#7F5DF0',
+      //   inactiveTintColor: 'gray',
+      // }}
     >
       <Tab.Screen name="A COMPRAR" component={ListScreen} />
       <Tab.Screen name="EN CARRITO" component={ListInCart} />

@@ -40,12 +40,12 @@ const NewProductScreen = ({ navigation }) => {
 
                 <Picker
                     selectedValue={categoryValue}
-                    style={{ height: 50, width: 150 }}
+                    style={{ height: 50, width: 300}}
                     onValueChange={(itemValue, itemIndex) => setCategoryValue(itemValue)}
                 >
                     <Picker.Item label="Selecciona una categoria" value="" />
                     {categories.map((category) => (
-                        <Picker.Item label={category.title} value={category.id} />
+                        <Picker.Item key={category.id} label={category.title} value={category.id} />
                     ))}
                 </Picker>
 
