@@ -28,7 +28,7 @@ const ProductNavigator = () => {
         name="Home"
         component={CategoriesScreen}
         options={({ navigation }) => ({
-          title: 'Mis productos',
+          title: 'Categorias',
           headerRight: () => (
             <TouchableOpacity onPress={() => navigation.navigate('New')}>
               <Ionicons name="md-add" color={Platform.OS === 'android' ? 'white' : COLORS.DARK_SIENNA} size={23} />

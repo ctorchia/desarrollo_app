@@ -12,6 +12,9 @@ const CategoryProductScreen = ({ route, navigation }) => {
   const category = useSelector(state => state.categories.selected)
 
   useEffect(() => {
+    navigation.setOptions({
+      title: category.title
+    })
     dispatch(filterProducts(category.id))
   }, []);
 
