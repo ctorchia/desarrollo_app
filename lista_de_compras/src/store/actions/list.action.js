@@ -28,6 +28,7 @@ export const clearList = () => {
 }
 
 export const confirmList = (list, total) => {
+    // IF THE CART IS NOT EMPTY, CONFIRM IT
     if (list.length !== 0) {    
         return async dispatch => {
             try {

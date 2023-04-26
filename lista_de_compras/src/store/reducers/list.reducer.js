@@ -11,7 +11,7 @@ const ListReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case ADD_ITEM:
-
+            // IF THE PRODUCT IS NOT IN THE CART, ADD IT 
             if (!state.itemsInCart.find(item => item.id === action.item.id)) {
                 let updatedItems = []
                 if (state.items.find(item => item.id === action.item.id)) {
@@ -37,7 +37,7 @@ const ListReducer = (state = initialState, action) => {
                 return state
             }
 
-
+                
         case REMOVE_ITEM:
             const filteredItems = state.items.filter(item => item.id !== action.itemId)
             return {
