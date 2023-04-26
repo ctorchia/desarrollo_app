@@ -10,8 +10,9 @@ export const COLORS = {
     PEACH_PUFF: "#f9dbbd",
     active: "#7F5DF0",
     inactive: "#C6C6C6",
+    alternative01: '#0FA3B1',
 
-    category01: '#0FA3B1',
+    category01: '#ADA7C9',
     category02: '#D9E5D6',
     category03: '#EDDEA4',
     category04: '#F7A072',

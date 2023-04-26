@@ -1,22 +1,24 @@
+import { COLORS } from '../constants/colors'
+
 export const CATEGORIES = [
     {
         id: '1',
         title: 'Almacen',
-        color: '#0FA3B1'
+        color: COLORS.category01
     },
     {
         id: '2',
         title: 'Perfumería',
-        color: '#D9E5D6'
+        color: COLORS.category02
     },
     {
         id: '3',
         title: 'Limpieza',
-        color: '#EDDEA4'
+        color: COLORS.category03
     },
     {
         id: '4',
         title: 'Frescos',
-        color: '#F7A072'
+        color: COLORS.category04
     }
 ]
