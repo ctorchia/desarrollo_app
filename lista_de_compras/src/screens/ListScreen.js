@@ -1,5 +1,5 @@
 import { Button, FlatList, StyleSheet, View } from 'react-native'
-import { confirmList, moveToCart, removeItem } from '../store/actions/list.action'
+import { clearList, moveToCart, removeItem } from '../store/actions/list.action'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { COLORS } from '../constants/colors'
@@ -25,8 +25,8 @@ const ListScreen = () => {
 
   const dispatch = useDispatch()
 
-  const onHandleConfirmList = () => {
-    dispatch(confirmList(list, total))
+  const onHandleClearList = () => {
+    dispatch(clearList())
   }
 
   const renderListItem = ({ item }) => {
@@ -44,8 +44,8 @@ const ListScreen = () => {
         />
       </View>
       <View style={styles.footer}>
-        <Button title='Guardar Lista en Historial' onPress={() => {
-          onHandleConfirmList()
+        <Button title='Nueva Lista de Compras' onPress={() => {
+          onHandleClearList()
         }} />
       </View>
     </View>
@@ -65,6 +65,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   footer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 12,
     borderTopColor: COLORS.inactive,
     borderTopWidth: 1,

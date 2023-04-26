@@ -1,11 +1,11 @@
-import { FlatList, StyleSheet, View } from 'react-native'
+import { Button, FlatList, StyleSheet, View } from 'react-native'
+import { confirmList, removeFromCart } from '../store/actions/list.action'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { COLORS } from '../constants/colors'
 import { FONTS } from '../constants/fonts';
 import ListItemInCart from '../components/ListItemInCart'
 import React from 'react'
-import { removeFromCart } from '../store/actions/list.action'
 
 const ListInCart = () => {
 
@@ -16,6 +16,10 @@ const ListInCart = () => {
 
   const onHandleRemoveFromCart = (itemId) => {
     dispatch(removeFromCart(itemId))
+  }
+
+  const onHandleConfirmList = () => {
+    dispatch(confirmList(list))
   }
 
   const dispatch = useDispatch()
@@ -34,6 +38,11 @@ const ListInCart = () => {
           keyExtractor={(item) => item.id}
         />
       </View>
+      <View style={styles.footer}>
+        <Button title='Guardar Compra en Historial' onPress={() => {
+          onHandleConfirmList()
+        }} />
+      </View>
     </View>
   )
 }
@@ -51,6 +60,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   footer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 12,
     borderTopColor: COLORS.inactive,
     borderTopWidth: 1,

@@ -28,28 +28,35 @@ export const clearList = () => {
 }
 
 export const confirmList = (list, total) => {
-    return async dispatch => {
-        try {
+    if (list.length !== 0) {    
+        return async dispatch => {
+            try {
 
-            const response = await fetch(URL_API + 'lists.json', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    date: new Date(),
-                    items: list,
-                    total: total
-                }),
-            });
+                const response = await fetch(URL_API + 'lists.json', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        date: new Date(),
+                        items: list,
+                        total: total
+                    }),
+                });
 
-            const result = await response.json();
-            dispatch({
-                type: CONFIRM_LIST,
-                confirm: true
-            });
-        } catch (error) {
-            console.error(error)
+                const result = await response.json();
+                dispatch({
+                    type: CONFIRM_LIST,
+                    confirm: true
+                });
+            } catch (error) {
+                console.error(error)
+            }
+        }
+    } else {
+        return {
+            type: CONFIRM_LIST,
+            confirm: false
         }
     }
 }

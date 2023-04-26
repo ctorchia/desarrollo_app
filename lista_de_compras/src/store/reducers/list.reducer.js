@@ -50,6 +50,7 @@ const ListReducer = (state = initialState, action) => {
             return {
                 ...state,
                 items: [],
+                itemsInCart: [],
                 total: 0
             }
 
