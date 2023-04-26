@@ -11,33 +11,26 @@ const ListReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case ADD_ITEM:
-            // IF THE PRODUCT IS NOT IN THE CART, ADD IT 
-            if (!state.itemsInCart.find(item => item.id === action.item.id)) {
-                let updatedItems = []
-                if (state.items.find(item => item.id === action.item.id)) {
-                    updatedItems = state.items.map(item => {
-                        if (item.id === action.item.id) {
-                            return {
-                                ...item,
-                                quantity: item.quantity + 1
-                            }
+            let updatedItems = []
+            if (state.items.find(item => item.id === action.item.id)) {
+                updatedItems = state.items.map(item => {
+                    if (item.id === action.item.id) {
+                        return {
+                            ...item,
+                            quantity: item.quantity + 1
                         }
-                        return item
-                    })
-                } else {
-                    updatedItems = [...state.items, action.item]
-                }
-                return {
-                    ...state,
-                    items: updatedItems,
-                    total: updatedItems.length
-                }
+                    }
+                    return item
+                })
             } else {
-                console.log("El producto existe en Carrito")
-                return state
+                updatedItems = [...state.items, action.item]
+            }
+            return {
+                ...state,
+                items: updatedItems,
+                total: updatedItems.length
             }
 
-                
         case REMOVE_ITEM:
             const filteredItems = state.items.filter(item => item.id !== action.itemId)
             return {

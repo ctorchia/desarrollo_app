@@ -1,4 +1,4 @@
-import { Button, FlatList, StyleSheet, View } from 'react-native'
+import { Button, FlatList, StyleSheet, ToastAndroid, View } from 'react-native'
 import { confirmList, removeFromCart } from '../store/actions/list.action'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -19,7 +19,12 @@ const ListInCart = () => {
   }
 
   const onHandleConfirmList = () => {
-    dispatch(confirmList(list))
+    if (list.length === 0) {
+      ToastAndroid.show('No hay productos en la lista', ToastAndroid.SHORT)
+    } else {
+      ToastAndroid.show('Compra guardada en Historial', ToastAndroid.SHORT)
+      dispatch(confirmList(list))
+    }
   }
 
   const dispatch = useDispatch()
