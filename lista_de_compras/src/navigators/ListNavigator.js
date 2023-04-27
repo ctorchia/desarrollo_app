@@ -1,46 +1,48 @@
 import * as React from 'react';
 
-import { COLORS } from '../constants/colors'
-import { Ionicons } from '@expo/vector-icons';
+import { SceneMap, TabBar, TabView } from 'react-native-tab-view';
+
 import ListInCart from '../screens/ListInCart'
 import ListScreen from '../screens/ListScreen'
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { useWindowDimensions } from 'react-native';
 
-const Tab = createMaterialTopTabNavigator();
+const FirstRoute = () => (
+  <ListScreen />
+);
 
-export default function App() {
+const SecondRoute = () => (
+  <ListInCart />
+);
+
+const renderScene = SceneMap({
+  first: FirstRoute,
+  second: SecondRoute,
+});
+
+const renderTabBar = props => (
+  <TabBar
+    {...props}
+    indicatorStyle={{ backgroundColor: 'black' }}
+    // style={{ backgroundColor: 'tomato' }}
+  />
+);
+
+export default function TabViewList() {
+  const layout = useWindowDimensions();
+
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    { key: 'first', title: 'A COMPRAR' },
+    { key: 'second', title: 'EN CARRITO' },
+  ]);
+
   return (
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        activeTintColor: COLORS.active,
-        inactiveTintColor: COLORS.category01,
-        tabBarIcon: ({ focused, color, size }) => {
-          if (route.name === 'Home') {
-            return (
-              <Ionicons
-                name={
-                  focused
-                    ? 'ios-information-circle'
-                    : 'ios-information-circle-outline'
-                }
-                size={size}
-                color={color}
-              />
-            );
-          } else if (route.name === 'Settings') {
-            return (
-              <Ionicons
-                name={focused ? 'ios-list-box' : 'ios-list'}
-                size={size}
-                color={color}
-              />
-            );
-          }
-        },
-      })}
-    >
-      <Tab.Screen name="A COMPRAR" component={ListScreen} />
-      <Tab.Screen name="EN CARRITO" component={ListInCart} />
-    </Tab.Navigator>
+    <TabView
+      navigationState={{ index, routes }}
+      renderTabBar={renderTabBar}
+      renderScene={renderScene}
+      onIndexChange={setIndex}
+      initialLayout={{ width: layout.width }}
+    />
   );
 }
